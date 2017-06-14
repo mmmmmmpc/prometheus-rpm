@@ -1,0 +1,18 @@
+[Unit]
+Description=Prometheus
+After=network.target remote-fs.target
+Documentation=https://prometheus.io/docs/introduction/overview/
+
+[Service]
+Type=simple
+User=prometheus
+Group=prometheus
+ExecStart=/opt/prometheus/prometheus \
+   -config.file=/etc/prometheus.yml \
+   -storage.local.path=/var/lib/prometheus
+
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
