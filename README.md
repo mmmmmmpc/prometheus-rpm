@@ -3,7 +3,20 @@ RPM Packaging Files for Prometheus
 
 rpmckages get build in the [mperezco/prometheus COPR repo](https://copr.fedorainfracloud.org/coprs/mperezco/prometheus/)
 
-You can enable it in Fedora 26 with:
+## Instructions
+
+You can enable COPR repo in Fedora 26 with:
 ```
-   # dnf copr enable mperezco/prometheus
+   $ sudo dnf copr enable mperezco/prometheus
 ```
+Install the package
+```
+   $ sudo dnf install prometheus -y
+```
+Start the service
+```
+   $ sudo systemctl start prometheus
+```
+... and access the interface via [http://localhost:9090](http://localhost:9090)
+
+
