@@ -11,11 +11,12 @@ You can enable COPR repo in Fedora 26 with:
 ```
 Install the package
 ```
-   $ sudo dnf install prometheus -y
+   $ sudo dnf install prometheus prometheus_node_exporter -y
 ```
 Start the service
 ```
    $ sudo systemctl start prometheus
+   $ sudo systemctl start prometheus_node_exporter
 ```
 ... and access the interface via [http://localhost:9090](http://localhost:9090)
 
