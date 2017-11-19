@@ -1,5 +1,5 @@
 [Unit]
-Description=Prometheus
+Description=Prometheus Node Exporter
 After=network.target remote-fs.target
 Documentation=https://prometheus.io/docs/introduction/overview/
 
@@ -7,10 +7,8 @@ Documentation=https://prometheus.io/docs/introduction/overview/
 Type=simple
 User=prometheus
 Group=prometheus
-WorkingDirectory=/var/lib/prometheus
-ExecStart=/opt/prometheus/prometheus \
-   --config.file=/etc/prometheus.yml \
-   --storage.tsdb.path=/var/lib/prometheus
+WorkingDirectory=/var/lib/prometheus_node_exporter
+ExecStart=/opt/prometheus/node_exporter/node_exporter
 
 Restart=on-failure
 

@@ -1,11 +1,11 @@
 Name:           prometheus
-Version:        1.3.1
-Release:        4%{?dist}
+Version:        2.0.0
+Release:        5%{?dist}
 Summary:        Prometheus
 
 License:        ASL 2.0
 URL:            http://prometheus.io
-Source0:        https://github.com/prometheus/prometheus/releases/download/v1.3.1/prometheus-1.3.1.linux-amd64.tar.gz
+Source0:        https://github.com/prometheus/prometheus/releases/download/v2.0.0/prometheus-2.0.0.linux-amd64.tar.gz
 Source1:        prometheus.service
 Source2:        prometheus.yml
 
@@ -20,7 +20,7 @@ BuildRequires:  systemd
 Prometheus
 
 %prep
-%setup -q -n prometheus-1.3.1.linux-amd64
+%setup -q -n prometheus-2.0.0.linux-amd64
 mkdir rpm-config
 cp -av %{SOURCE1} ./rpm-config/
 cp -av %{SOURCE2} ./rpm-config/
@@ -65,6 +65,9 @@ exit 0
 /opt/prometheus
 
 %changelog
+* Sun Nov 19 2017 Miguel Perez Colino <mperez@redhat.com> release 5
+- Version 2.0 bump
+
 * Wed Jun 14 2017 Miguel Perez Colino <mperez@redhat.com> release 4
 - Fixed service file
 
