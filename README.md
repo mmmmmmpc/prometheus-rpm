@@ -5,7 +5,7 @@ rpmckages get build in the [mperezco/prometheus COPR repo](https://copr.fedorain
 
 ## Instructions
 
-You can enable COPR repo in Fedora 26 with:
+You can enable COPR repo in Fedora 26 or 27 with:
 ```
    $ sudo dnf copr enable mperezco/prometheus
 ```
