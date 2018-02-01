@@ -1,11 +1,11 @@
 Name:           prometheus_node_exporter
-Version:        0.15.1
-Release:        1%{?dist}
+Version:        0.15.2
+Release:        2%{?dist}
 Summary:        Prometheus Node Exporter
 
 License:        ASL 2.0
 URL:            http://prometheus.io
-Source0:        https://github.com/prometheus/node_exporter/releases/download/v0.15.1/node_exporter-0.15.1.linux-amd64.tar.gz
+Source0:        https://github.com/prometheus/node_exporter/releases/download/v0.15.2/node_exporter-0.15.2.linux-amd64.tar.gz
 Source1:        prometheus_node_exporter.service
 
 BuildRequires:  systemd
@@ -19,7 +19,7 @@ BuildRequires:  systemd
 Prometheus Node Exporter
 
 %prep
-%setup -q -n node_exporter-0.15.1.linux-amd64
+%setup -q -n node_exporter-0.15.2.linux-amd64
 mkdir rpm-config
 cp -av %{SOURCE1} ./rpm-config/
 
@@ -60,5 +60,8 @@ exit 0
 /opt/prometheus/node_exporter
 
 %changelog
+* Thu Feb 01 2018 Miguel Perez Colino <mperez@redhat.com> release 2
+- Bump version to 0.15.2
+
 * Sun Nov 19 2017 Miguel Perez Colino <mperez@redhat.com> release 1
 - Initial build
