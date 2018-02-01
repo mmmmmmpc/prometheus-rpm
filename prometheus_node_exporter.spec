@@ -19,7 +19,7 @@ BuildRequires:  systemd
 Prometheus Node Exporter
 
 %prep
-%setup -q -n node_exporter-0.15.2.linux-amd64
+%setup -q -n node_exporter-%{version}.linux-amd64
 mkdir rpm-config
 cp -av %{SOURCE1} ./rpm-config/
 

@@ -1,6 +1,6 @@
 Name:           prometheus
 Version:        2.1.0
-Release:        5%{?dist}
+Release:        8%{?dist}
 Summary:        Prometheus
 
 License:        ASL 2.0
@@ -20,7 +20,7 @@ BuildRequires:  systemd
 Prometheus
 
 %prep
-%setup -q -n prometheus-2.1.0.linux-amd64
+%setup -q -n prometheus-%{version}.linux-amd64
 mkdir rpm-config
 cp -av %{SOURCE1} ./rpm-config/
 cp -av %{SOURCE2} ./rpm-config/
@@ -36,6 +36,7 @@ mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}
 install -p -m 644 ./rpm-config/prometheus.yml $RPM_BUILD_ROOT%{_sysconfdir}/
 mkdir -p $RPM_BUILD_ROOT/var/lib/prometheus
 cp -parf * $RPM_BUILD_ROOT/opt/prometheus
+cp -parf consoles/index.html.example $RPM_BUILD_ROOT/opt/prometheus/consoles/index.html
 
 %pre
 # Add the "prometheus" user
@@ -65,6 +66,14 @@ exit 0
 /opt/prometheus
 
 %changelog
+* Thu Feb 01 2018 Miguel Perez Colino <mperez@redhat.com> release 8
+- Fixed path for default console
+- Added version macro to setup
+- Fixed port in default config to get node exporter
+
+* Thu Feb 01 2018 Miguel Perez Colino <mperez@redhat.com> release 7
+- Added default console
+
 * Thu Feb 01 2018 Miguel Perez Colino <mperez@redhat.com> release 6
 - Version 2.1 bump
 - Fixed console path execution in service start. Thanks to https://github.com/do11
