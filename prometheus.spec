@@ -1,6 +1,6 @@
 Name:           prometheus
 Version:        2.1.0
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        Prometheus
 
 License:        ASL 2.0
@@ -63,9 +63,13 @@ exit 0
 %attr(644,root,root) %{_unitdir}/prometheus.service
 %dir %attr(755,prometheus,prometheus) %{_var}/lib/prometheus
 %config(noreplace) %attr(0755,root,root) %{_sysconfdir}/prometheus.yml
+%config(noreplace) %attr(755,prometheus,prometheus) /opt/prometheus/consoles/index.html
 /opt/prometheus
 
 %changelog
+* Mon Feb 12 2018 Miguel Perez Colino <mperez@redhat.com> release 9
+- Fixed filetype for default console
+
 * Thu Feb 01 2018 Miguel Perez Colino <mperez@redhat.com> release 8
 - Fixed path for default console
 - Added version macro to setup
